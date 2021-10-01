@@ -1,0 +1,29 @@
+name: py3
+channels:
+  - defaults
+  - http://ssb.stsci.edu/astroconda
+  - conda-forge
+dependencies:
+  - ipython
+  - jupyter
+  - scipy
+  - matplotlib
+  - astropy
+  - yaml
+  - pyyaml
+  - healpy
+  - mpi4py
+  - scikit-learn
+  - uncertainties
+  - pyproj
+  - basemap
+  - pyepsg
+  - proj4
+  - pytest
+  - ipympl
+  - widgetsnbextension
+  - xlrd
+  - seaborn
+  - astroml
+  - sympy
+  - theano
