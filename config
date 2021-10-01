@@ -1,0 +1,4 @@
+Host stampede2
+    HostName stampede2.tacc.utexas.edu 
+    User USERNAME
+    IdentityFile ~/.ssh/id_rsa
