@@ -71,12 +71,14 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+#alias ll='ls -alF'
+alias la='ls -la'
+#alias l='ls -CF'
+alias lrt='ls - lrt'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias squ='squeue -u tg876846'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -95,18 +97,39 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/work/08385/tg876846/stampede2/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/work/08385/tg876846/stampede2/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/work/08385/tg876846/stampede2/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/work/08385/tg876846/stampede2/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+#########################################################################
+#-----------------------------LOAD MODULES------------------------------#
+#########################################################################
 
+module unload python2
+module load python3
+
+# UNCOMMENT BELOW TO NOT AUTOMATICALLY LOAD MODULES
+
+#function loadModules () {
+    module load cmake intel mvapich2 gsl fftw3 phdf5/1.8.16 
+#}    
+#This is for gizmo, phdf5 has version 1.8.16 for python compatability
+
+
+#########################################################################
+#-------------------------ENVIRONMENT VARIABLES-------------------------#
+#########################################################################
+
+
+export PYLIB="/opt/apps/intel18/python3/3.7.0/lib"
+export LIBRARY_PATH=$TACC_GSL_LIB; export CPATH=$TACC_GSL_INC
+
+export CUSTOM_PYTHON_PACKAGES_PATH=/work/08385/tg876846/stampede2/customPackages            # CHANGE THIS TO YOUR OWN CUSTOM PACKAGES DIRECTORY
+export PYTHONPATH=/opt/apps/intel18/impi18_0/python3/3.7.0/lib/python3.7/site-packages:$CUSTOM_PYTHON_PACKAGES_PATH:$PYTHONPATH
+export JUPYTERPATH=$PYTHONPATH
+
+
+#########################################################################
+#--------------------------VIRTUAL ENVIRONMENT--------------------------#
+#########################################################################
+
+# Virtual Env from Lina from Shea
+function aEnv () {
+    source $WORK/virtualEnvs/NAMEOFENV/bin/activate                                             # CHANGE THIS TO YOUR OWN VIRTUALENV
+}
