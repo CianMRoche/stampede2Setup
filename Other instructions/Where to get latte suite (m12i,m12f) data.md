@@ -27,3 +27,9 @@ should be at website
 
 which in fact redirects to
 `https://girder.hub.yt/#collection/5b0427b2e9914800018237da`
+
+under "Latte simulation snapshots"
+
+To download, select a box, click the icon on the top-left of the file interface with the tickbox and the down arrow, and choose "download checked resources".
+
+Note that the m12f folder may not download properly and appears to be corrupted.
