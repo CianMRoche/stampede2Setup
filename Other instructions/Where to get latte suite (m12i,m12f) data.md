@@ -1,8 +1,15 @@
 
 # 1. Stampede shared files
   
-  ## For m12f
-tl;dr go to 
+  ## For m12i or m12f (see file paths)
+
+If you need to transfer to another system/cluster: Run this where the dot is to place it in the current folder on your system (use scopy instead of rsync)
+
+`rsync -avz --progress tg876846@stampede2.tacc.utexas.edu:/scratch/projects/xsede/GalaxiesOnFIRE/metal_diffusion/m12i_res7100/output/snapdir_600 .`
+
+Note that this should not be overused as rsync can cause problems for stampede.
+
+The old method was:
 `/scratch/projects/xsede/GalaxiesOnFIRE/metal_diffusion/m12f_res7100/output/snapdir_600`
 
 
@@ -19,7 +26,6 @@ tl;dr go to
 	`/snapdir_600`
 
 
-## Similar for others like m12i
 
 # 2. On the ananke site
 should be at website
@@ -28,8 +34,4 @@ should be at website
 which in fact redirects to
 `https://girder.hub.yt/#collection/5b0427b2e9914800018237da`
 
-under "Latte simulation snapshots"
-
-To download, select a box, click the icon on the top-left of the file interface with the tickbox and the down arrow, and choose "download checked resources".
-
-Note that the m12f folder may not download properly and appears to be corrupted.
+# Make sure you get all (4) components of a single snapshot
