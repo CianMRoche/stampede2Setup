@@ -5,8 +5,9 @@ Intended to help people new to cluster computing get set up as fact as possible.
 
 # Random
 ### Copying ssh key to host when ssh-copy-id doesnt work: 
-In the following, replace {...} with username@host for appropriate platform/cluster:  
-Run in a local terminal `$env:USERPROFILE\.ssh\id_rsa.pub | ssh {...} "cat >> .ssh/authorized_keys"`
+The following only works when your cluster uses an authorized_keys file for ssh accesses.  
+
+Run in a local terminal `$env:USERPROFILE\.ssh\id_rsa.pub | ssh {...} "cat >> .ssh/authorized_keys"` where you replace `{...}` with `username@host` for appropriate platform/cluster:
 
 ### Manually running jupyter notebooks (general cluster instructions)
 Instructions courtesy of [Chelsea](https://hangchelseasu.github.io/). Assume your cluster has an interactive compute node session utility, accessed by the command "idev" (interactive development, changes for each cluster). The following steps allow you to use its compute resources for a jupyter notebook which is accessed locally in your personal machine's browser.  
